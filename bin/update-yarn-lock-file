@@ -22,12 +22,6 @@ fi
 # See if commit message includes "update"
 git log --name-status HEAD^..HEAD | grep "update" || { echo ">> not an update commit"; exit 0; }
 
-# only continue if yarn exits with error code (needs to update)
-yarn check && { echo ">> yarn check passed, yarn.lock does not need to update"; exit 0; }
-
-# Run yarn to create/update lockfile
-yarn generate-lock-entry > yarn.lock && { echo ">> running yarn upgrade"; }
-
 USER_EMAIL=${USER_EMAIL:-"circleci@users.noreply.github.com"}
 USER_NAME=${USER_NAME:-"CircleCI"}
 
