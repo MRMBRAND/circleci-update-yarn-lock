@@ -38,4 +38,4 @@ git --no-pager diff
 # Commit and push yarn.lock file
 git add yarn.lock
 git commit -m "chore(yarn): update yarn.lock"
-git push origin $CIRCLE_BRANCH
+git push origin $CIRCLE_BRANCH --no-verify
